@@ -25,7 +25,7 @@ jobs:
 
       - name: Test Application
         run: |
-          python test.py
+          python main.py
 
   deploy:
     name: Deploy
@@ -48,4 +48,4 @@ jobs:
 
       - name: Deploy Application
         run: |
-          python app.py
+          python main.py
