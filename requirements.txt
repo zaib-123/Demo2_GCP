@@ -1,1 +1,2 @@
-pip install Flask twilio
+Flask==1.1.2
+twilio==6.51.1
