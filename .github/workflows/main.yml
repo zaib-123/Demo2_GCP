@@ -27,7 +27,7 @@ jobs:
 
       - name: Test Application
         run: |
-          
+          Run ping -c 4 www.google.co.in
           export FLASK_RUN_PORT=8080
           export FLASK_RUN_HOST=127.0.0.1
           python -c "import socket; s = socket.socket(socket.AF_INET, socket.SOCK_STREAM); s.bind(('127.0.0.1', 8080))"
