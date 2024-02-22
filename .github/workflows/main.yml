@@ -22,6 +22,8 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
+          pip install --upgrade Flask
+
 
       - name: Test Application
         run: |
