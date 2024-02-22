@@ -28,7 +28,11 @@ jobs:
       - name: Test Application
         run: |
           
-          python main.py --host 127.0.0.1 --port 8080
+          export FLASK_RUN_PORT=8080
+          export FLASK_RUN_HOST=127.0.0.1
+          python main.py --host 127.0.0.1 --port 8080 &  # Run Flask app in background
+          sleep 5  # Wait for Flask app to start (adjust time as needed)
+          pkill -SIGINT -f "python main.py"  # Send SIGINT signal to stop Flask app
 
 
 
