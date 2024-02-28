@@ -43,6 +43,7 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
            credentials_json: ${{ secrets.GCP_SA_KEY }}
+           project_id: vminstance-414214 
 
 
       - name: Deploy via GCS
