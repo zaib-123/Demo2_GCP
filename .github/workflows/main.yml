@@ -24,7 +24,6 @@ jobs:
           pip install -r requirements.txt
           pip install --upgrade Flask
 
-
       - name: Test Application
         run: |
           export FLASK_RUN_PORT=8080
@@ -42,11 +41,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up gcloud CLI
-        uses: google-github-actions/setup-gcloud@v2
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
         with:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           service_account_email: ${{ secrets.GCS_SA_EMAIL }}
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
           project_id: vminstance-414214
 
       - name: Deploy via GCS
