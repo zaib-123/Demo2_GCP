@@ -14,22 +14,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install Dependencies
+      - name: Test Index HTML
         run: |
-          pip install -r requirements.txt
-          pip install --upgrade Flask
-
-      - name: Test Application
-        run: |
-          export FLASK_RUN_PORT=8080
-          export FLASK_RUN_HOST=127.0.0.1
-          python -c "import socket; s = socket.socket(socket.AF_INET, socket.SOCK_STREAM); s.bind(('127.0.0.1', 8080))"
-          echo "Port 8080 is available"
+              apt-get update && apt-get install -y tidy
 
   deploy:
     name: Deploy
@@ -54,4 +41,4 @@ jobs:
 
       - name: Deploy via GCS
         run: |
-          gsutil cp main.py gs://demo-cicd/
+          gsutil cp index.html gs://demo-cicd/
