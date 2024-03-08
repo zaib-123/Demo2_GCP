@@ -48,6 +48,10 @@ jobs:
         with:
           project_id: vminstance-414214
 
+      - name: Make bucket
+        run: |
+         gsutil mb gs://staging.vminstance-414214.appspot.com
+
       - name: Deploy to App Engine
         run: |
           gcloud app deploy --quiet
