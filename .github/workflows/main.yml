@@ -23,7 +23,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install --upgrade Flask
-          pip install --upgrade --force-reinstall Jinja2
 
       - name: Test Application
         run: |
@@ -39,17 +38,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install --upgrade Flask
-          pip install --upgrade --force-reinstall Jinja2
-
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v2
         with:
@@ -60,15 +48,6 @@ jobs:
         with:
           project_id: vminstance-414214
 
-      - name: creating bucket
+      - name: Deploy to App Engine
         run: |
-         gsutil mb gs://staging.vminstance-414214.appspot.com
-
-
-
-      - name: Deploy to App Engine 
-        run: |
-          gcloud app deploy --quiet app.yaml
-
-
-
+          gcloud app deploy --quiet
