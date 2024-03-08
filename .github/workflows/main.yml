@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Test Index HTML
+      - name: Install dependendies
         run: |
               apt-get update && apt-get install -y tidy
 
