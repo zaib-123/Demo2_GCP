@@ -62,8 +62,8 @@ jobs:
 
       - name: Upload to Cloud Storage
         run: |
-          gsutil cp -r . gs://demo-cid
+          gsutil cp -r . gs://demo-cicd 
 
       - name: Deploy to App Engine from Cloud Storage
         run: |
-          gcloud app deploy --quiet --source gs://demo-cid
+          gcloud app deploy --quiet --source gs://demo-cicd 
