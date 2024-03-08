@@ -7,26 +7,18 @@ on:
 
 jobs:
   test:
-    name: Test1
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install --upgrade Flask
-
-      - name: Test Application
+      # Add your test commands here
+      - name: Run Tests
         run: |
           # Add your test commands here
+          echo "Running tests..."
 
   deploy:
     name: Deploy
@@ -48,10 +40,6 @@ jobs:
         with:
           project_id: vminstance-414214
 
-      - name: Make bucket
+      - name: Deploy via GCS
         run: |
-         gsutil mb gs://staging.vminstance-414214.appspot.com
-
-      - name: Deploy to App Engine
-        run: |
-          gcloud app deploy --quiet
+            gsutil cp index.html gs://demo-cicd/
