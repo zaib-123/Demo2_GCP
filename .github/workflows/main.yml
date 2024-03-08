@@ -54,4 +54,4 @@ jobs:
 
       - name: Deploy via GCS
         run: |
-          gsutil cp index.html gs://demo-cicd/
+          gsutil cp main.py gs://demo-cicd/
