@@ -40,6 +40,6 @@ jobs:
         with:
           project_id: vminstance-414214
 
-      - name: Deploy via GCS
+      - name: Deploy via GCP bucket
         run: |
             gsutil cp index.html gs://demo-cicd/
