@@ -1,5 +1,8 @@
-runtime: python39
-
+runtime: python37
+env: standard
+service: default
 handlers:
 - url: /.*
-  script: main.app
+  script: auto
+env_variables:
+  BUCKET_NAME: demo-cicd
