@@ -60,6 +60,10 @@ jobs:
         with:
           project_id: vminstance-414214
 
-      - name: Deploy to App Engine
+      - name: Upload to Cloud Storage
         run: |
-          gcloud app deploy --quiet
+          gsutil cp -r . gs://demo-cid
+
+      - name: Deploy to App Engine from Cloud Storage
+        run: |
+          gcloud app deploy --quiet --source gs://demo-cid
