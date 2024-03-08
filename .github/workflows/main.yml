@@ -63,7 +63,7 @@ jobs:
     
 
 
-      - name: Deploy to App Engine from Cloud Storage
+      - name: Deploy to App Engine 
         run: |
           gcloud app deploy --quiet app.yaml
 
