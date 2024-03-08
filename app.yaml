@@ -1,2 +1,11 @@
 runtime: python39
-entrypoint: gunicorn -b :$PORT main.app
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: main.app
+
+libraries:
+- name: flask
+  version: 0.12
